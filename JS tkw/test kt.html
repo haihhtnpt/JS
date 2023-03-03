@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra số 1</title>
+</head>
+<body>
+    <p>TÍNH SỐ NGÀY TRONG THÁNG</p>
+    <form name="form" action="" onsubmit="return kiemtra()">
+        Nhập tháng:<input type="text" placeholder="Nhập tháng" name="Nhapthang" size="15" maxlength="30"/><br/><br/>
+        Nhập năm:<input type="text" placeholder="Nhập năm" name="Nhapnam" size="15" maxlength="30"/><br/><br/>
+        <p id="kiemtra"></p>
+
+
+    </form>
+    <script language="Javascript">
+        function kiemtra(){
+            
+            let x=document.form.Nhapthang.value;
+            let y=document.form.Nhapnam.value;
+            let text;
+            if(x==1||x==3||x==5||x==7||x==8||x==10||x==12){
+                document.write('Số ngày trong tháng ');
+                document.write(x);
+                document.write(' là 31');
+            }
+            if(x==4||x==6||x==9||x==11){
+                document.write('Số ngày trong tháng ');
+                document.write(x);
+                document.write(' là 30');
+            }
+            if(x==2){
+                if(y%4==0){
+                    document.write('Số ngày trong tháng ');
+                    document.write(x);
+                    document.write(' là 29');
+                }
+                else{
+                    document.write('Số ngày trong tháng ');
+                    document.write(x);
+                    document.write(' là 28');
+                }
+            }
+            if(isNaN(y)||isNaN(x)||x<1||x>12){
+                text="Dữ liệu nhập vào không hợp lệ";
+                document.getElementById("kiemtra").innerHTML=text;
+                return false;
+            }
+            else{
+                text="Dữ liệu nhập vào hợp lệ";
+                document.getElementById("kiemtra").innerHTML=text;
+
+                return true;
+            }
+
+
+
+            
+
+        }
+    </script>
+    <input type="button" onclick=kiemtra() value="Submit"/>
+    
+</body>
+</html>
